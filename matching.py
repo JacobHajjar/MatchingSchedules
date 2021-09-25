@@ -35,7 +35,7 @@ def convert_to_data(schedule_string):
     return schedule
 
 def mergedSchedules(pers1Schedule, pers2Schedule):
-    merged =[]
+    merged =[[0,0]]
     i,j =0,0
 
     pers1ScheduleMinutes = convertListToMinutes(pers1Schedule)
@@ -44,19 +44,26 @@ def mergedSchedules(pers1Schedule, pers2Schedule):
     while i < len(pers1ScheduleMinutes) and j< len(pers2ScheduleMinutes):
         meeting1, meeting2 =pers1ScheduleMinutes[i], pers2ScheduleMinutes[j]
         if meeting1[0]<= meeting2[0]:
-            merged.append(meeting1)
+            if meeting1[1] > merged[-1][1]:
+                merged.append(meeting1)
             i+=1
         else:
-            merged.append(meeting2)
+            if meeting2[1] > merged[-1][1]:
+                merged.append(meeting2)
             j+=1
     while i< len(pers1ScheduleMinutes):
         meeting1 = pers1ScheduleMinutes[i]
-        merged.append(meeting1)
+        if meeting1[1] > merged[-1][1]:
+            merged.append(meeting1)
         i+=1
     while j< len(pers2ScheduleMinutes):
         meeting2 = pers2ScheduleMinutes[j]
-        merged.append(meeting2)
+        if meeting2[1] > merged[-1][1]:
+            merged.append(meeting2)
         j+=1
+    print("START")
+    print(merged)
+    print("END")
     return merged
 
 def sortedAllSchedules (Schedule):
@@ -65,9 +72,20 @@ def sortedAllSchedules (Schedule):
 
     #Todo: write a function to  arrange all schedules. New meeting starts AFTER the end of current meeting.
     possibleAvailabilities = []
-    for index, plans in enumerate(Schedule[:-1]):
-        if plans[1] < Schedule[index + 1][0]:
-            possibleAvailabilities.append([plans[1], Schedule[index + 1][0]])
+    index = 0
+    while index < (len(Schedule) - 1):
+        if Schedule[index][1] < Schedule[index + 1][0]:
+            possibleAvailabilities.append([Schedule[index][1], Schedule[index + 1][0]])
+            index+=1
+        else:
+            index+=1
+
+    #for index, plans in enumerate(Schedule[:-1]):
+     #   if plans[1] < Schedule[index + 1][0]:
+     #       possibleAvailabilities.append([plans[1], Schedule[index + 1][0]])
+     #   else:
+    print("POSSIBLE AVAIL")
+    print(possibleAvailabilities)
     return possibleAvailabilities
 
 
@@ -77,7 +95,7 @@ def matchedAvailabilities(Schedule, duration):
     availabilities=[]
    #Todo: write a function to match all availabilities
     for possible_availability in Schedule:
-        if possible_availability[1] - possible_availability[0] > int(duration):
+        if possible_availability[1] - possible_availability[0] >= int(duration):
             availabilities.append(possible_availability)
 
     availabilities_reconverted =  []
