@@ -61,9 +61,6 @@ def mergedSchedules(pers1Schedule, pers2Schedule):
         if meeting2[1] > merged[-1][1]:
             merged.append(meeting2)
         j+=1
-    print("START")
-    print(merged)
-    print("END")
     return merged
 
 def sortedAllSchedules (Schedule):
@@ -79,13 +76,6 @@ def sortedAllSchedules (Schedule):
             index+=1
         else:
             index+=1
-
-    #for index, plans in enumerate(Schedule[:-1]):
-     #   if plans[1] < Schedule[index + 1][0]:
-     #       possibleAvailabilities.append([plans[1], Schedule[index + 1][0]])
-     #   else:
-    print("POSSIBLE AVAIL")
-    print(possibleAvailabilities)
     return possibleAvailabilities
 
 
@@ -113,7 +103,7 @@ def convertToMinutes(time):
 
 def convertListToMinutes(schedule_list):
     '''converts a 2d list of a time schedule into minutes'''
-    scheduleMinutes = []
+    scheduleMinutes = [] 
     for plan in schedule_list:
         minutesPlan = []
         for bound in plan:
