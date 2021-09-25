@@ -8,19 +8,19 @@ With the python interpreter installed and in the directory of matching.py, enter
 
 Just the input for copy pasting:
 
-[[ ‘6:00’, ’8:00’],  [’11:30’, ’13:00’], [’14:30’, ’16:00’], [’16:30’, ’17:30’]]
-[[ ‘7:00’, ’9:00’],  [’11:00’, ’12:30’], [’14:40’, ’16:00’], [’17:00’, ’18:00’ ]]
-[‘9:00’, ’20:00’]
-[‘9:00’, ’18: 30’]
-25
-
+[[ ‘6:00’, ’8:00’],  [’11:30’, ’13:00’], [’14:30’, ’16:00’], [’16:30’, ’17:30’]]  
+[[ ‘7:00’, ’9:00’],  [’11:00’, ’12:30’], [’14:40’, ’16:00’], [’17:00’, ’18:00’ ]]  
+[‘9:00’, ’20:00’]  
+[‘9:00’, ’18: 30’]  
+25  
+  
 Entire program Input/Output:
 
-Enter schedule for person 1:[[ ‘6:00’, ’8:00’],  [’11:30’, ’13:00’],  [’14:30’, ’16:00’], [’16:30’, ’17:30’]]
-Enter schedule for person 2:[[ ‘7:00’, ’9:00’],  [’11:00’, ’12:30’],  [’14:40’, ’16:00’], [’17:00’, ’18:00’ ]]
-Enter Daily Availability for pers 1: [‘9:00’, ’20:00’]
-Enter Daily Availability for pers 2: [‘9:00’, ’18: 30’]
+Enter schedule for person 1:[[ ‘6:00’, ’8:00’],  [’11:30’, ’13:00’],  [’14:30’, ’16:00’], [’16:30’, ’17:30’]]  
+Enter schedule for person 2:[[ ‘7:00’, ’9:00’],  [’11:00’, ’12:30’],  [’14:40’, ’16:00’], [’17:00’, ’18:00’ ]]  
+Enter Daily Availability for pers 1: [‘9:00’, ’20:00’]  
+Enter Daily Availability for pers 2: [‘9:00’, ’18: 30’]  
 Enter duration of the proposed meeting: 25
 
-Output:
+Output:  
 [['9:00', '11:00'], ['13:00', '14:30'], ['16:00', '16:30'], ['18:00', '18:30']]
